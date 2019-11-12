@@ -3,12 +3,14 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
 import { AntDesign as Icon } from '@expo/vector-icons';
 import { Text, View } from 'react-native';
+import lang from '../core/language';
+import color from '../core/colors';
 
 class HomeScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello, home!</Text>
+        <Text>Hello, bla!</Text>
       </View>
     );
   }
@@ -24,29 +26,31 @@ class SettingScreen extends Component {
   }
 }
 
+function getIcon(ident: string) {
+  return ({ tintColor }) => (<Icon name={ident} size={25} color={tintColor} />);
+}
+
 const TabNavigator = createBottomTabNavigator(
   {
     Home: {
       screen: HomeScreen,
       navigationOptions: ({ navigation }) => ({
-	tabBarIcon: ({ focused, tintColor }) => {
-	  return <Icon name='home' size={25} color={tintColor} />;
-	},
+	tabBarIcon: getIcon('home'),
+	title: lang.tabHome,
       }),
     },
     Settings: {
       screen: SettingScreen,
       navigationOptions: ({ navigation }) => ({
-	tabBarIcon: ({ focused, tintColor }) => {
-	  return <Icon name='setting' size={25} color={tintColor} />;
-	},
+	tabBarIcon: getIcon('setting'),
+	title: lang.tabSettings,
       }),
     },
   },
   {
     tabBarOptions: {
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
+      activeTintColor: color.tabActive,
+      inactiveTintColor: color.tabInactive,
     },
   }
 );
