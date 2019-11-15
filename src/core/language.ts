@@ -1,10 +1,14 @@
 class Language {
-	get tabSettings(): string {
-		return this.translate('Settings');
+	get tabSchedule(): string {
+		return this.translate('Schedule');
 	}
 
-	get tabHome(): string {
-		return this.translate('Home');
+	get tabCourses(): string {
+		return this.translate('Courses');
+	}
+
+	get tabSettings(): string {
+		return this.translate('Settings');
 	}
 
 	private translate(ident: string): string {

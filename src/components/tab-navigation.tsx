@@ -2,29 +2,13 @@ import React, { Component } from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
 import { AntDesign as Icon } from '@expo/vector-icons';
-import { Text, View } from 'react-native';
+
+import ScheduleScreen from '../screens/schedule';
+import CoursesScreen from '../screens/courses';
+import SettingScreen from '../screens/settings';
+
 import lang from '../core/language';
 import color from '../core/colors';
-
-class HomeScreen extends Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello, bla!</Text>
-      </View>
-    );
-  }
-}
-
-class SettingScreen extends Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello, settings!</Text>
-      </View>
-    );
-  }
-}
 
 function getIcon(ident: string) {
   return ({ tintColor }) => (<Icon name={ident} size={25} color={tintColor} />);
@@ -32,11 +16,18 @@ function getIcon(ident: string) {
 
 const TabNavigator = createBottomTabNavigator(
   {
-    Home: {
-      screen: HomeScreen,
+    Schedule: {
+      screen: ScheduleScreen,
       navigationOptions: ({ navigation }) => ({
-	tabBarIcon: getIcon('home'),
-	title: lang.tabHome,
+	tabBarIcon: getIcon('calendar'),
+	title: lang.tabSchedule,
+      }),
+    },
+    Courses: {
+      screen: CoursesScreen,
+      navigationOptions: ({ navigation }) => ({
+	tabBarIcon: getIcon('rocket1'),
+	title: lang.tabCourses,
       }),
     },
     Settings: {
@@ -48,6 +39,7 @@ const TabNavigator = createBottomTabNavigator(
     },
   },
   {
+    initialRouteName: 'Courses',
     tabBarOptions: {
       activeTintColor: color.tabActive,
       inactiveTintColor: color.tabInactive,

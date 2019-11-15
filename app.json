@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "orgampus",
-    "slug": "orgampus",
+    "name": "studiplan",
+    "slug": "studiplan",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
