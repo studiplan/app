@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import TopBar from '../components/top-bar';
-import { Text, View } from '@shoutem/ui';
+import { Text, View } from 'react-native';
 
 export default class CoursesScreen extends Component {
   render() {
     return (
       <View>
-          <Text>test1</Text>
+        <TopBar title='Courses' />
+        <Text>test1</Text>
       </View>
     );
   }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { NavigationBar } from '@shoutem/ui';
 import color from '../core/colors';
 
 const style = StyleSheet.create({
@@ -14,6 +13,8 @@ const style = StyleSheet.create({
 
 export default function TopBar({ title }) {
 	return (
-		<NavigationBar title={title} />
+		<View style={style.container}>
+			<Text>{title}</Text>
+		</View>
 	);
 }
